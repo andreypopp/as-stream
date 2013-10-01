@@ -12,4 +12,12 @@ describe('as-stream', function() {
     }))
   })
 
+  it('build an empty stream with no args', function(done) {
+    var seen = []
+    asStream().pipe(through(seen.push.bind(seen), function() {
+      assert.deepEqual(seen, [])
+      done()
+    }))
+  })
+
 })

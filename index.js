@@ -1,7 +1,7 @@
 var through = require('through')
 
 module.exports = function(str) {
-  if (typeof str.pipe === 'function') return str
+  if (str && typeof str.pipe === 'function') return str
 
   var stream = through()
   stream.pause()
